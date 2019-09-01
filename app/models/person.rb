@@ -47,4 +47,8 @@ class Person < ApplicationRecord
       )
     end
   end
+
+  def full_genitive
+    declensions.find_by(case: 'genitive').full_name
+  end
 end
