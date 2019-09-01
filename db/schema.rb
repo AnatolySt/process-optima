@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_01_123359) do
+ActiveRecord::Schema.define(version: 2019_09_01_125255) do
 
   create_table "people", force: :cascade do |t|
     t.string "first_name"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2019_09_01_123359) do
     t.string "full_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "person_declensions", force: :cascade do |t|
+    t.integer "person_id"
+    t.string "case"
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "full_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["person_id"], name: "index_person_declensions_on_person_id"
   end
 
 end
