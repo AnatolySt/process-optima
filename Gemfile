@@ -55,3 +55,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'petrovich', '~> 1.0'
 gem 'slim'
+gem "font-awesome-rails"
+gem 'bootstrap_form'
