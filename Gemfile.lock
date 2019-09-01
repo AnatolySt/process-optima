@@ -58,6 +58,9 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    annotate (2.7.5)
+      activerecord (>= 3.2, < 7.0)
+      rake (>= 10.4, < 13.0)
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
@@ -103,6 +106,7 @@ GEM
     nio4r (2.5.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
+    petrovich (1.1.1)
     public_suffix (4.0.1)
     puma (3.12.1)
     rack (2.0.7)
@@ -201,11 +205,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
+  petrovich (~> 1.0)
   puma (~> 3.11)
   rails (~> 6.0.0)
   sass-rails (~> 5)
