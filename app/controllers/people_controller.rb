@@ -19,7 +19,7 @@ class PeopleController < ApplicationController
     if @person.save
       redirect_to @person
     else
-      flash[:error] = @person.error
+      flash[:error] = @person.errors
       render :new
     end
   end
@@ -31,7 +31,7 @@ class PeopleController < ApplicationController
     if @person.update(person_params)
       redirect_to @person
     else
-      flash[:error] = @person.error
+      flash[:error] = @person.errors
       render :edit
     end
   end
