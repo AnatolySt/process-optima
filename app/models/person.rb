@@ -20,7 +20,7 @@ class Person < ApplicationRecord
   after_initialize :set_full_name
   after_save :set_declensions
 
-  DECLENSIONS = %w(genitive dative accusative instrumental prepositional)
+  DECLENSIONS = %w(genitive dative accusative instrumental prepositional).freeze
 
   def set_full_name
     self.full_name = [first_name, middle_name, last_name].join(" ").gsub(/\s+/, ' ')
@@ -38,13 +38,18 @@ class Person < ApplicationRecord
   def set_declensions
     person = set_petrovich
     DECLENSIONS.each do |decl|
-      declensions.create(
-        case: decl,
-        first_name: person.to(decl.to_sym).firstname,
-        last_name: person.to(decl.to_sym).lastname,
-        middle_name: person.to(decl.to_sym).middlename,
-        full_name: person.to(decl.to_sym).to_s
-      )
+      declension = {
+          case: decl,
+          first_name: person.to(decl.to_sym).firstname,
+          last_name: person.to(decl.to_sym).lastname,
+          middle_name: person.to(decl.to_sym).middlename,
+          full_name: person.to(decl.to_sym).to_s
+      }
+      if current_decl = declensions.find_by(case: decl)
+        current_decl.update(declension)
+      else
+        declensions.create(declension)
+      end
     end
   end
 
