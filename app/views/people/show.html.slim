@@ -24,5 +24,6 @@
           td = @person.last_name
           - @person.declensions.each do |decl|
             td = decl.last_name
-
+      br
+      p = link_to 'Редактировать персону', edit_person_path
       p = link_to 'Вернуться к списку', people_path
