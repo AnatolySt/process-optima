@@ -1,0 +1,6 @@
+= bootstrap_form_for @person do |form|
+  = form.text_field :first_name, label: 'Имя'
+  = form.text_field :last_name, label: 'Фамилия'
+  = form.text_field :middle_name, label: 'Отчество'
+  = form.select :sex, options_for_select([%w(Мужской male), %w(Женский female)]), label: 'Пол'
+  = form.submit 'Отправить'

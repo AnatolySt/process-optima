@@ -1,0 +1,29 @@
+.container
+  .row
+    .col-sm-12
+      h2.page-title Персональная страница
+      p = @person.full_name
+
+      table.table
+        tr
+          td Именительный
+          td Родительный
+          td Дательный
+          td Винительный
+          td Творительный
+          td Предложный
+        tr
+          td = @person.first_name
+          - @person.declensions.each do |decl|
+            td = decl.first_name
+        tr
+          td = @person.middle_name
+          - @person.declensions.each do |decl|
+            td = decl.middle_name
+        tr
+          td = @person.last_name
+          - @person.declensions.each do |decl|
+            td = decl.last_name
+      br
+      p = link_to 'Редактировать персону', edit_person_path
+      p = link_to 'Вернуться к списку', people_path
